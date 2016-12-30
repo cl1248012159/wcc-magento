@@ -481,57 +481,70 @@ class Mage_Catalog_Model_Convert_Parser_Product
                     $row[$field] = $value;
                 }
             }
-
-            $productMediaGallery = $product->getMediaGallery();
-            $product->reset();
-
-            $processedImageList = array();
             foreach ($this->_imageFields as $field) {
-                if (isset($row[$field])) {
-                    if ($row[$field] == 'no_selection') {
-                        $row[$field] = null;
-                    } else {
-                        $processedImageList[] = $row[$field];
-                    }
+                if (isset($row[$field]) && $row[$field] == 'no_selection') {
+                    $row[$field] = null;
                 }
             }
-            $processedImageList = array_unique($processedImageList);
 
-            $batchModelId = $this->getBatchModel()->getId();
-            $this->getBatchExportModel()
+            $batchExport = $this->getBatchExportModel()
                 ->setId(null)
-                ->setBatchId($batchModelId)
+                ->setBatchId($this->getBatchModel()->getId())
                 ->setBatchData($row)
                 ->setStatus(1)
                 ->save();
+            $product->reset();
 
-            $baseRowData = array(
-                'store'     => $row['store'],
-                'website'   => $row['website'],
-                'sku'       => $row['sku']
-            );
-            unset($row);
-
-            foreach ($productMediaGallery['images'] as $image) {
-                if (in_array($image['file'], $processedImageList)) {
-                    continue;
-                }
-
-                $rowMediaGallery = array(
-                    '_media_image'          => $image['file'],
-                    '_media_lable'          => $image['label'],
-                    '_media_position'       => $image['position'],
-                    '_media_is_disabled'    => $image['disabled']
-                );
-                $rowMediaGallery = array_merge($baseRowData, $rowMediaGallery);
-
-                $this->getBatchExportModel()
-                    ->setId(null)
-                    ->setBatchId($batchModelId)
-                    ->setBatchData($rowMediaGallery)
-                    ->setStatus(1)
-                    ->save();
-            }
+//            $productMediaGallery = $product->getMediaGallery();
+//            $product->reset();
+//
+//            $processedImageList = array();
+//            foreach ($this->_imageFields as $field) {
+//                if (isset($row[$field])) {
+//                    if ($row[$field] == 'no_selection') {
+//                        $row[$field] = null;
+//                    } else {
+//                        $processedImageList[] = $row[$field];
+//                    }
+//                }
+//            }
+//            $processedImageList = array_unique($processedImageList);
+//
+//            $batchModelId = $this->getBatchModel()->getId();
+//            $this->getBatchExportModel()
+//                ->setId(null)
+//                ->setBatchId($batchModelId)
+//                ->setBatchData($row)
+//                ->setStatus(1)
+//                ->save();
+//
+//            $baseRowData = array(
+//                'store'     => $row['store'],
+//                'website'   => $row['website'],
+//                'sku'       => $row['sku']
+//            );
+//            unset($row);
+//
+//            foreach ($productMediaGallery['images'] as $image) {
+//                if (in_array($image['file'], $processedImageList)) {
+//                    continue;
+//                }
+//
+//                $rowMediaGallery = array(
+//                    '_media_image'          => $image['file'],
+//                    '_media_lable'          => $image['label'],
+//                    '_media_position'       => $image['position'],
+//                    '_media_is_disabled'    => $image['disabled']
+//                );
+//                $rowMediaGallery = array_merge($baseRowData, $rowMediaGallery);
+//
+//                $this->getBatchExportModel()
+//                    ->setId(null)
+//                    ->setBatchId($batchModelId)
+//                    ->setBatchData($rowMediaGallery)
+//                    ->setStatus(1)
+//                    ->save();
+//            }
         }
 
         return $this;

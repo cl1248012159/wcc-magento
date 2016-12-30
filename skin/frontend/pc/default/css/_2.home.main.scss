@@ -1,0 +1,42 @@
+body .mian_1column{
+    @include page1200;
+    padding:0;
+}
+
+.home_big_banner .owl-controls{
+    position: relative;
+    .owl-dots{
+        position: absolute;  height: 20px;  width: 100%;  line-height:20px;  bottom:5px;  text-align:right;padding-right: 30px;
+        .owl-dot{  background: #e3edef;  width:10px;  height:10px;  border-radius: 7px;  display: inline-block;  margin: 0 5px;  }
+        .active{  background:#864887;  }
+    }
+}
+
+.module-title{
+  position: relative;width:100%;height:8px;background:$second_color;text-align:center;margin:30px auto;
+  span{position: absolute;top:-14px;left:50%;margin-left:-100px;width:200px;display: inline-block;background:#fff;padding:5px 15px;font-size:14px;}
+}
+.module{
+  @include float_clear;
+  ul{
+    li{
+      float:left;width:24.25%;margin-right:1%;
+      &:nth-child(4n){margin-right:0;}
+      img{width:100%;}
+    }
+  }
+}
+.promotion-title{
+  background:#64c4c3;height:1px;
+  span{
+    font-family: serif;font-size:28px;text-transform: uppercase;top:-27px;width:300px;margin-left:-150px;
+    i{
+      width:10px;height:10px;border-radius:5px;background:#64c4c3;display: block;position: absolute;
+      &:first-child{top:22px;left:0;}
+      &:last-child{top:22px;right:0;}
+    }
+  }
+}
+.promotion{
+  ul li{width:33.3333333%;margin:0;}
+}

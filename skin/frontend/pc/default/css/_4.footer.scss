@@ -1,0 +1,138 @@
+.helpcenter{
+  @include float_clear;
+  background:#d5fbfe;margin-top:20px;
+  dl{
+    float:left;width:20%;padding:20px;text-align:left;
+    dt{
+      font-size:13px;text-transform: capitalize;font-weight:bold;
+    }
+  }
+}
+/* Footer ================================================================================ */
+.footer { margin:0 auto; padding:30px 10px 50px;border-top:3px solid #000;}
+.footer .store-switcher { display:inline; margin:0 5px 0 0; }
+.footer .store-switcher label { font-weight:bold; vertical-align:middle; }
+.footer .store-switcher select { padding:0; vertical-align:middle; }
+.footer a {  text-decoration:none;color:#999; }
+.footer a:hover { text-decoration:underline; color:#4d4d4f;}
+
+.footer address { margin:10px 0; color:#999; }
+.footer address a {  text-decoration:underline; }
+.footer address a:hover { text-decoration:none; }
+.footer ul { display:inline; }
+.footer ul.links { display:block; }
+.footer li { display:inline; background:url(../images/bkg_pipe2.gif) 100% 60% no-repeat; padding:0 7px 0 4px; }
+.footer li.last { background:none !important; padding-right:0 !important; }
+.footer-container .bottom-container { margin:0 0 5px; }
+
+.list-footer{
+  max-width: $page_width;  margin: 0 auto;  overflow: hidden;
+  .fcenter {
+    float: left;
+    position: relative;
+    left: 50%;
+    padding: 5px 0;
+  }
+  li {
+    display: block;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    right: 50%;
+    margin: 0 3px;
+  }
+  .ic {
+    display: inline-block;
+    vertical-align: middle;
+    width: 38px;
+    height: 24px;
+    background: url(../images/bed/banks38.jpg) no-repeat;
+    opacity: .5;
+    filter: alpha(opacity=50);
+  }
+  .ic:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  .ic_visa {
+    background-position: 0 0;
+  }
+  .ic_master {
+    background-position: 0 -25px;
+  }
+  .ic_lastschrift {
+    background-position: 0 -525px;
+  }
+  .ic_discover {
+    background-position: 0 -200px;
+  }
+  .ic_paypal {
+    background-position: 0 -125px;
+  }
+  .ic_express {
+    background-position: 0 -50px;
+  }
+  .ic_jcb {
+    background-position: 0 -75px;
+  }
+  .ic_bleue {
+    background-position: 0 -100px;
+  }
+  .ic_transfer {
+    background-position: 0 -600px;
+  }
+  .ic_western {
+    background-position: 0 -225px;
+  }
+  .ic_qwiki {
+    background-position: 0 -625px;
+  }
+  .ic_delta {
+    background-position: 0 -375px;
+  }
+  .ic_carte {
+    background-position: 0 -450px;
+  }
+  .ic_giropay {
+    background-position: 0 -175px;
+  }
+  .ic_sofort {
+    background-position: 0 -702px;
+  }
+  .ic_dhl {
+    background-position: 0 -325px;
+  }
+  .ic_ups {
+    background-position: 0 -350px;
+  }
+  .ic_versg {
+    width: 69px;
+    background-position: 0 -675px;
+  }
+  .ic_norton {
+    width: 60px;
+    background-position: 0 -650px;
+  }
+}
+/* ======================================================================================= */
+
+#gotopbtn {
+  float: right;
+  margin-right: -20px;
+  a {
+    background-image: url(../images/bed/back.png);
+    background-repeat: no-repeat;
+    background-color:$main_color;
+    background-position: center center;
+    bottom: 200px;
+    cursor: pointer;
+    height: 52px;
+    position: fixed;
+    text-indent: -999em;
+    width: 51px;
+    right: 20px;
+    z-index: 10000;
+    border-radius: 10px;
+  }
+}
+

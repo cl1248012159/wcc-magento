@@ -1,0 +1,18 @@
+<?php if (!Mage::registry('current_category')) return ?>
+<?php $_categories = $this->getCurrentChildCategories() ?>
+<?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
+<?php if($_count): ?>
+    <div class="shopby">
+        <div class="shopby-title"><?php echo Mage::registry('current_category')->getName()?></div>
+        <dl>
+            <dt>shop by category</dt>
+            <?php foreach ($_categories as $_category): ?>
+                <?php if($_category->getIsActive()): ?>
+                    <dd>
+                        <a href="<?php echo $this->getCategoryUrl($_category) ?>"<?php if ($this->isCategoryActive($_category)): ?> class="current"<?php endif; ?>><?php echo $this->escapeHtml($_category->getName()) ?></a> (<?php echo $_category->getProductCount() ?>)
+                    </dd>
+                <?php endif; ?>
+            <?php endforeach ?>
+        </dl>
+    </div>
+<?php endif; ?>

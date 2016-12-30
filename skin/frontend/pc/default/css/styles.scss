@@ -1,0 +1,53 @@
+/**VAR***********************/
+$page_width: 1200px;
+$main_color:#864887;
+$second_color:#e3edef;
+
+/**INCLUDE***********************/
+//@include page1200;
+@mixin page1200 {  width:100%;  max-width:$page_width;  margin:0 auto;  background: #fff;  }
+
+//@include float_clear;
+@mixin float_clear {
+  *zoom:1;
+  &:after{  display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden;  }
+}
+
+/**media***********************/
+@media screen and (max-width: $page_width) {
+    .page1200{  padding:0 50px;  }
+}
+
+
+
+/**scss*****/
+* {  box-sizing: border-box;  }
+
+
+
+/***style css**/
+@import "_default_styles.scss";
+@import "_owl.carousel.scss";
+
+
+/**** my css ****/
+
+.bed_page{
+    @include page1200;
+  box-shadow: 0px 0px 15px #000;
+}
+
+.MT10{margin-top:10px;}
+
+
+@import "_1.header.scss";
+
+@import "_2.home.main.scss";
+
+@import "_3.login.scss";
+
+@import "_4.footer.scss";
+
+@import "_5.category.scss";
+
+@import "_6.cms.scss";

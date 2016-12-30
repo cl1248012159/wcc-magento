@@ -714,12 +714,18 @@ class Mage_Catalog_Model_Url
         }
 
         $categoryUrlSuffix = $this->getCategoryUrlSuffix($category->getStoreId());
-        if (null === $parentPath) {
-            $parentPath = $this->getResource()->getCategoryParentPath($category);
-        }
-        elseif ($parentPath == '/') {
+
+
+
+        /***多级分类URL去掉父目录的方法*/
+        // if (null === $parentPath) {
+        //     $parentPath = $this->getResource()->getCategoryParentPath($category);
+        // }
+        // elseif ($parentPath == '/') {
             $parentPath = '';
-        }
+        // }
+        /***多级分类URL去掉父目录的方法*/
+
         $parentPath = Mage::helper('catalog/category')->getCategoryUrlPath($parentPath,
                                                                            true, $category->getStoreId());
 
@@ -773,18 +779,25 @@ class Mage_Catalog_Model_Url
         $storeId = $category->getStoreId();
         $suffix  = $this->getProductUrlSuffix($storeId);
         $idPath  = $this->generatePath('id', $product, $category);
+
+
+
+        
         /**
          * Prepare product base request path
          */
         if ($category->getLevel() > 1) {
             // To ensure, that category has path either from attribute or generated now
-            $this->_addCategoryUrlPath($category);
-            $categoryUrl = Mage::helper('catalog/category')->getCategoryUrlPath($category->getUrlPath(),
-                false, $storeId);
-            $requestPath = $categoryUrl . '/' . $urlKey;
+            // $this->_addCategoryUrlPath($category);
+            // $categoryUrl = Mage::helper('catalog/category')->getCategoryUrlPath($category->getUrlPath(),
+            //     false, $storeId);
+            // $requestPath = $categoryUrl . '/' . $urlKey;
         } else {
-            $requestPath = $urlKey;
+            //$requestPath = $urlKey;
         }
+        $requestPath = "product/".$urlKey;
+
+
 
         if (strlen($requestPath) > self::MAX_REQUEST_PATH_LENGTH + self::ALLOWED_REQUEST_PATH_OVERFLOW) {
             $requestPath = substr($requestPath, 0, self::MAX_REQUEST_PATH_LENGTH);

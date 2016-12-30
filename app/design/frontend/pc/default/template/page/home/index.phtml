@@ -1,0 +1,73 @@
+<div class="owl-carousel home_big_banner">
+    <?php $home_big_banners = Mage::getModel('ibanners/group')->loadByCode('big_banner')->getBannerCollection(); ?>
+    <?php foreach($home_big_banners as $banner): ?>
+        <a class="item" href="<?php echo $banner->getUrl(); ?>">
+            <img title="<?php echo $banner->getTitle();?>"
+                 alt="<?php echo $banner->getAlt();?>"
+                 src="<?php echo $banner->getImageUrl();?>"/>
+        </a>
+    <?php endforeach; ?>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('.home_big_banner').each(function() {
+            if(jQuery('.item', this).length > 0) {
+                jQuery(this).owlCarousel({
+                    loop: true,
+                    nav: false,
+                    items: 1,
+                    autoplay: true,
+                    autoplayTimeout: 5000,
+                    autoplayHoverPause:true
+                });
+            }
+        });
+    });
+</script>
+
+<div class="module-title"><span>Shop Bedding Sets by Size</span></div>
+
+<div class="module">
+    <ul>
+        <?php $home_big_banners = Mage::getModel('ibanners/group')->loadByCode('shop_bedding_sets_by_size')->getBannerCollection(); ?>
+        <?php foreach($home_big_banners as $banner): ?>
+        <li><a class="item" href="<?php echo $banner->getUrl(); ?>">
+                <img title="<?php echo $banner->getTitle();?>"
+                     alt="<?php echo $banner->getAlt();?>"
+                     src="<?php echo $banner->getImageUrl();?>"/>
+            </a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+
+
+<div class="module-title"><span>Shop Bedding by Category</span></div>
+
+<div class="module">
+    <ul>
+        <?php $home_big_banners = Mage::getModel('ibanners/group')->loadByCode('shop_bedding_by_category')->getBannerCollection(); ?>
+        <?php foreach($home_big_banners as $banner): ?>
+            <li><a class="item" href="<?php echo $banner->getUrl(); ?>">
+                    <img title="<?php echo $banner->getTitle();?>"
+                         alt="<?php echo $banner->getAlt();?>"
+                         src="<?php echo $banner->getImageUrl();?>"/>
+                </a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+
+<div class="module-title promotion-title"><span><i></i>promotion<i></i></span></div>
+
+<div class="module promotion">
+    <ul>
+        <?php $home_big_banners = Mage::getModel('ibanners/group')->loadByCode('promotion')->getBannerCollection(); ?>
+        <?php foreach($home_big_banners as $banner): ?>
+            <li><a class="item" href="<?php echo $banner->getUrl(); ?>">
+                    <img title="<?php echo $banner->getTitle();?>"
+                         alt="<?php echo $banner->getAlt();?>"
+                         src="<?php echo $banner->getImageUrl();?>"/>
+                </a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>

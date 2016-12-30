@@ -1,0 +1,16 @@
+<dl class="cms-page-left">
+    <dt>FEATURE CATEGORIES</dt>
+    <dd><a href="<?php echo $this->getUrl()?>about-us">About Us</a></dd>
+    <dd><a href="<?php echo $this->getUrl()?>shipping-and-delivery">Shipping & Delivery</a></dd>
+    <dd><a href="<?php echo $this->getUrl()?>return-policy">Return Policy</a></dd>
+    <dd><a href="<?php echo $this->getUrl()?>payment-methods">Payment Methods</a></dd>
+    <dd><a href="<?php echo $this->getUrl()?>delivery-time">Delivery Time</a></dd>
+    <dd><a href="<?php echo $this->getUrl()?>faq">FAQ</a></dd>
+</dl>
+<script type="text/javascript">
+    jQuery(".cms-page-left a").each(function(){
+        if(jQuery(this).attr("href").indexOf("<?php echo $this->getRequest()->getPathInfo() ?>") !=-1){
+            jQuery(this).addClass("on");
+        }
+    });
+</script>
